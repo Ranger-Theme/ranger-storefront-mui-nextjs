@@ -3,13 +3,13 @@ import Head from "next/head";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import createCache from "@emotion/cache";
 
 import { theme } from "@/config/theme";
+import { createCache } from "@/utils/createCache";
 import GlobalStyled from "@/components/GlobalStyled";
 import Header from "@/components/Header";
 
-const emotionCache = createCache({ key: "css", prepend: true });
+const emotionCache = createCache();
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;

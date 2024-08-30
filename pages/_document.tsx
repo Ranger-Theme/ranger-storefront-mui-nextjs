@@ -4,7 +4,8 @@ import {
   DocumentHeadTags,
   documentGetInitialProps,
 } from "@mui/material-nextjs/v14-pagesRouter";
-import createCache from "@emotion/cache";
+
+import { createCache } from "@/utils/createCache";
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: React.ReactElement<any>[];
@@ -27,7 +28,7 @@ const MyDocument = (props: MyDocumentProps) => {
 
 MyDocument.getInitialProps = async (ctx: any) => {
   const finalProps = await documentGetInitialProps(ctx, {
-    emotionCache: createCache({ key: "css", prepend: true }),
+    emotionCache: createCache(),
   });
 
   return finalProps;
