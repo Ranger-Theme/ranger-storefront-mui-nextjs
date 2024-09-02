@@ -1,4 +1,4 @@
-import { css, Global } from "@emotion/react";
+import { css, Global } from '@emotion/react'
 
 const GlobalStyled = () => {
   const globalStyle = css`
@@ -57,12 +57,12 @@ const GlobalStyled = () => {
       appearance: none;
     }
 
-    input[type="number"] {
+    input[type='number'] {
       appearance: textfield;
     }
-  `;
+  `
 
-  return <Global styles={globalStyle} />;
-};
+  return <Global styles={globalStyle} />
+}
 
-export default GlobalStyled;
+export default GlobalStyled

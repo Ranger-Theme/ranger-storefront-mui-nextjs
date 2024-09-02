@@ -1,30 +1,30 @@
-import { useRef, useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
+import { useRef, useState } from 'react'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Modal from '@mui/material/Modal'
+import Typography from '@mui/material/Typography'
 
-import SignInForm from "@/components/SignInForm";
+import SignInForm from '@/components/SignInForm'
 
 const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: "background.paper",
+  bgcolor: 'background.paper',
   boxShadow: 24,
-  p: 4,
-};
+  p: 4
+}
 
 const SignInModal = () => {
-  const boxRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<any>(null);
-  const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  console.info("boxRef: ", boxRef);
-  console.info("inputRef: ", inputRef);
+  const boxRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<any>(null)
+  const [open, setOpen] = useState<boolean>(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  console.info('boxRef: ', boxRef)
+  console.info('inputRef: ', inputRef)
 
   return (
     <>
@@ -35,8 +35,7 @@ const SignInModal = () => {
         keepMounted
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+        aria-describedby="modal-modal-description">
         <Box sx={style} ref={boxRef}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
@@ -48,7 +47,7 @@ const SignInModal = () => {
         </Box>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default SignInModal;
+export default SignInModal

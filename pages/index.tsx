@@ -1,7 +1,7 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
         </Button>
       </Box>
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

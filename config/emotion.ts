@@ -1,7 +1,7 @@
-import type { Theme } from "@emotion/react";
+import type { Theme } from '@emotion/react'
 
 export const emotionTheme: Theme = {
-  namespace: "Mui",
+  namespace: 'Mui',
   breakPoint: {
     xxs: 320,
     xs: 480,
@@ -12,11 +12,11 @@ export const emotionTheme: Theme = {
     lg: 1200,
     xl: 1440,
     xxl: 1600,
-    xxxl: 1920,
+    xxxl: 1920
   },
   colors: {
-    white: "#ffffff",
-    black: "#000000",
-    primary: "#036F7B",
-  },
-};
+    white: '#ffffff',
+    black: '#000000',
+    primary: '#036F7B'
+  }
+}

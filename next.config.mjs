@@ -2,32 +2,32 @@
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true
   },
   compiler: {
     emotion: {
       sourceMap: false,
-      autoLabel: "dev-only",
-      labelFormat: "[local]",
+      autoLabel: 'dev-only',
+      labelFormat: '[local]',
       importMap: {
-        "@mui/system": {
+        '@mui/system': {
           styled: {
-            canonicalImport: ["@emotion/styled", "default"],
-            styledBaseImport: ["@mui/system", "styled"],
-          },
+            canonicalImport: ['@emotion/styled', 'default'],
+            styledBaseImport: ['@mui/system', 'styled']
+          }
         },
-        "@mui/material/styles": {
+        '@mui/material/styles': {
           styled: {
-            canonicalImport: ["@emotion/styled", "default"],
-            styledBaseImport: ["@mui/material/styles", "styled"],
-          },
-        },
-      },
-    },
-  },
-};
+            canonicalImport: ['@emotion/styled', 'default'],
+            styledBaseImport: ['@mui/material/styles', 'styled']
+          }
+        }
+      }
+    }
+  }
+}
 
-export default nextConfig;
+export default nextConfig
