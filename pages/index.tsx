@@ -2,6 +2,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
+import { LRUCache } from 'lru-cache'
 import Link from 'next/link'
 
 import { GET_STORE_CONFIG } from '@/api/queries/getStoreConfig'
@@ -31,16 +32,33 @@ const Home = ({ currency, storeConfig }) => {
 
 export default Home
 
+const cache = new LRUCache({
+  max: 500,
+  ttl: 1000 * 60 * 12
+})
+
 export const getServerSideProps = async () => {
   const client = initializeApollo()
+  const cacheKey: string = 'AppConfig'
+  const cachedData = cache.get(cacheKey)
 
-  const { data } = await client.query({
-    query: GET_STORE_CONFIG,
-    fetchPolicy: 'cache-first'
-  })
+  console.info('cachedData: ', cachedData)
+  if (!cachedData) {
+    const { data } = await client.query({
+      query: GET_STORE_CONFIG,
+      fetchPolicy: 'cache-first'
+    })
 
-  // Pass data to the page via props
-  return addApolloState(client, {
-    props: { ...data }
-  })
+    // Save app config to cache
+    cache.set(cacheKey, data)
+
+    // Pass data to the page props
+    return addApolloState(client, {
+      props: { ...data }
+    })
+  }
+
+  return {
+    props: { ...cachedData }
+  }
 }
