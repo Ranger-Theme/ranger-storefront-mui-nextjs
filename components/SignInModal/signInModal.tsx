@@ -23,8 +23,6 @@ const SignInModal = () => {
   const [open, setOpen] = useState<boolean>(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  console.info('boxRef: ', boxRef)
-  console.info('inputRef: ', inputRef)
 
   return (
     <>

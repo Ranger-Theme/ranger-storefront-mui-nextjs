@@ -5,8 +5,6 @@ export const GET_STORE_CONFIG: DocumentNode = gql`
   query getStoreConfig {
     storeConfig {
       code: store_code
-      category_url_suffix
-      product_url_suffix
       cms_page: cms_home_page
       locale
       logo_alt

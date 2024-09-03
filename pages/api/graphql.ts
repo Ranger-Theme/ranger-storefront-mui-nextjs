@@ -17,17 +17,17 @@ const apiProxy: any = createProxyMiddleware({
 })
 
 const handler = (request: NextApiRequest, response: NextApiResponse) => {
-  if (request.headers['x-platform']) {
-    apiProxy(request, response, (result) => {
-      if (result instanceof Error) {
-        throw result
-      }
+  // if (request.headers['x-platform']) {
+  apiProxy(request, response, (result) => {
+    if (result instanceof Error) {
+      throw result
+    }
 
-      throw new Error(`Request '${request.url}' is not proxied! We should never reach here!`)
-    })
-  } else {
-    response.redirect(307, '/')
-  }
+    throw new Error(`Request '${request.url}' is not proxied! We should never reach here!`)
+  })
+  // } else {
+  //   response.redirect(307, '/')
+  // }
 }
 
 export const config = {
