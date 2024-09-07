@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from '@apollo/client'
 
-import { GET_FILTER_INPUTS } from '@/api/queries/getFilterInputs'
+import { GET_FILTER_INPUTS } from '@/apis/queries/getFilterInputs'
 import ProductList from '@/components/ProductList'
 
 const CategoryGrid = ({ id }) => {

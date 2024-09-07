@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from '@apollo/client'
 
-import { GET_PRODUCTS } from '@/api/queries/getProducts'
+import { GET_PRODUCTS } from '@/apis/queries/getProducts'
 
 import ProductItem from './ProductItem'
 

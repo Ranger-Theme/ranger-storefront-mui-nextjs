@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { useSuspenseQuery } from '@apollo/client'
 
-import { GET_CMS_PAGE } from '@/api/queries/getCmsPage'
+import { GET_CMS_PAGE } from '@/apis/queries/getCmsPage'
 
 interface CmsPageProps {
   identifier: string

@@ -3,9 +3,8 @@ import { isNull } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-import { GET_ROUTE } from '@/api/queries/getRoute'
+import { GET_ROUTE } from '@/apis/queries/getRoute'
 import { addApolloState, initializeApollo } from '@/lib/apollo/client'
-import { cache } from '@/utils/cache'
 
 const CategoryPage = dynamic(() => import('@/route/CategoryPage'))
 const ProductPage = dynamic(() => import('@/route/ProductPage'))

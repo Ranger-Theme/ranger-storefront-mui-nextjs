@@ -3,10 +3,10 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 
-import { GET_STORE_CONFIG } from '@/api/queries/getStoreConfig'
+import { GET_STORE_CONFIG } from '@/apis/queries/getStoreConfig'
 import { addApolloState, initializeApollo } from '@/lib/apollo/client'
 import CmsPage from '@/route/CmsPage'
-import { cache } from '@/utils/cache'
+import { lruCache } from '@/utils/cache'
 
 const Home = ({ currency, storeConfig }) => {
   return (
@@ -38,7 +38,7 @@ export default Home
 export const getServerSideProps = async () => {
   const client = initializeApollo()
   const cacheKey: string = 'AppConfig'
-  const cachedData = cache.get(cacheKey)
+  const cachedData = lruCache.get(cacheKey)
 
   if (!cachedData) {
     const { data } = await client.query({
@@ -47,7 +47,7 @@ export const getServerSideProps = async () => {
     })
 
     // Save app config to cache
-    cache.set(cacheKey, data)
+    lruCache.set(cacheKey, data)
 
     // Pass data to the page props
     return addApolloState(client, {

@@ -29,7 +29,9 @@ MyDocument.getInitialProps = async (ctx: any) => {
     emotionCache: createCache(cache)
   })
 
-  return finalProps
+  return {
+    ...finalProps
+  }
 }
 
 export default MyDocument
