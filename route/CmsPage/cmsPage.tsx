@@ -1,23 +1,13 @@
 import type { FC } from 'react'
-import { useSuspenseQuery } from '@apollo/client'
-
-import { GET_CMS_PAGE } from '@/apis/queries/getCmsPage'
 
 interface CmsPageProps {
-  identifier: string
+  data: any
 }
 
-const CmsPage: FC<CmsPageProps> = ({ identifier }) => {
-  const { data } = useSuspenseQuery<{ cmsPage: any }>(GET_CMS_PAGE, {
-    variables: { identifier },
-    fetchPolicy: 'cache-first',
-    errorPolicy: 'ignore'
-  })
-  const cms: any = data?.cmsPage ?? {}
-
+const CmsPage: FC<CmsPageProps> = ({ data }) => {
   return (
     <div>
-      <pre>{JSON.stringify(cms, null, 2)}</pre>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }
